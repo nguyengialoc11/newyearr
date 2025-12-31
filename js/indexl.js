@@ -20,7 +20,7 @@ var S = {
           // Chuyển hướng sang gallery
           window.location.href = "gallery.html";
         });
-      }, 5500);
+      }, 6500);
     }
 
     S.Drawing.loop(function () {
