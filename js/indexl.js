@@ -350,16 +350,28 @@ S.Color.prototype = {
 };
 
 S.Dot = function (x, y) {
+  var isMobile = window.innerWidth < 768;
+
   this.p = new S.Point({
     x: x,
     y: y,
-    z: 5,
+    // Mobile: z=4 (nhỏ hơn xíu cho thanh thoát). PC: z=5
+    z: isMobile ? 4 : 5,
     a: 1,
     h: 0
   });
+
   this.e = 0.04;
   this.s = true;
-  this.c = new S.Color(255, 255, 255, this.p.a);
+
+  // --- CHỈNH MÀU Ở ĐÂY ---
+  // Hiện tại là Trắng (255, 255, 255).
+  // Để nổi trên nền hồng, hãy thử màu Vàng Gold: (255, 215, 0)
+  // Hoặc màu Tím đậm giống thiết kế thẻ: (106, 76, 147)
+
+  this.c = new S.Color(255, 255, 255, this.p.a); // Đã đổi sang màu Vàng
+  // Nếu muốn giữ màu trắng, hãy sửa lại thành: new S.Color(255, 255, 255, this.p.a);
+
   this.t = this.clone();
   this.q = [];
 };
@@ -441,8 +453,13 @@ S.Dot.prototype = {
 }
 
 S.ShapeBuilder = (function () {
-  var gap = 13,
-      shapeCanvas = document.createElement('canvas'),
+// KIỂM TRA: Nếu màn hình nhỏ hơn 768px (Mobile) thì giảm Gap xuống
+  var isMobile = window.innerWidth < 768;
+
+  // Mobile: Gap = 7 (hạt dày đặc, chữ nét hơn). PC: Gap = 13 (giữ nguyên)
+  var gap = isMobile ? 7 : 13;
+
+  var shapeCanvas = document.createElement('canvas'),
       shapeContext = shapeCanvas.getContext('2d'),
       fontSize = 500,
       fontFamily = 'Avenir, Helvetica Neue, Helvetica, Arial, sans-serif';
@@ -513,10 +530,18 @@ S.ShapeBuilder = (function () {
     letter: function (l) {
       var s = 0;
       setFontSize(fontSize);
-      s = Math.min(fontSize, (shapeCanvas.width / shapeContext.measureText(l).width) * 0.8 * fontSize, (shapeCanvas.height / fontSize) * (isNumber(l) ? 1 : 0.45) * fontSize);
+
+      // Tăng tỷ lệ chiều ngang từ 0.8 lên 0.95 để chữ to hơn trên mobile
+      var scaleRatio = window.innerWidth < 768 ? 0.95 : 0.8;
+
+      s = Math.min(fontSize,
+          (shapeCanvas.width / shapeContext.measureText(l).width) * scaleRatio * fontSize,
+          (shapeCanvas.height / fontSize) * (isNumber(l) ? 1 : 0.45) * fontSize);
       setFontSize(s);
+
       shapeContext.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
       shapeContext.fillText(l, shapeCanvas.width / 2, shapeCanvas.height / 2);
+
       return processCanvas();
     },
     rectangle: function (w, h) {
