@@ -1,0 +1,50 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="asgiref" />
+          <option value="beautifulsoup4" />
+          <option value="blog" />
+          <option value="certifi" />
+          <option value="charset-normalizer" />
+          <option value="Django" />
+          <option value="django-autoslug" />
+          <option value="django-pyodbc" />
+          <option value="django-pyodbc-azure" />
+          <option value="django-pyodbc-azure-2019" />
+          <option value="django-ranged-response" />
+          <option value="django-recaptcha" />
+          <option value="django-simple-captcha" />
+          <option value="django-sslserver" />
+          <option value="django-utils-six" />
+          <option value="django-uuslug" />
+          <option value="docopt" />
+          <option value="idna" />
+          <option value="Jinja2" />
+          <option value="Markdown" />
+          <option value="MarkupSafe" />
+          <option value="newer" />
+          <option value="Pillow" />
+          <option value="pyembed" />
+          <option value="pyembed-markdown" />
+          <option value="Pygments" />
+          <option value="pymdown-extensions" />
+          <option value="pyodbc" />
+          <option value="python-slugify" />
+          <option value="pytz" />
+          <option value="PyYAML" />
+          <option value="requests" />
+          <option value="soupsieve" />
+          <option value="sqlparse" />
+          <option value="text-unidecode" />
+          <option value="typing_extensions" />
+          <option value="tzdata" />
+          <option value="Unidecode" />
+          <option value="urllib3" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

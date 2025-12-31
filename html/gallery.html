@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mobile Swipe Gallery</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="../css/gallery.css">
+</head>
+<body>
+<iframe id="fireworkBg" src="../firework/firework.html" frameborder="0"></iframe>
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide">
+      <div class="card">
+        <div class="card-header">
+          <img class="card-img" src="../img/case-1.jpg" alt="Card image">
+        </div>
+        <div class="card-body">
+          <h2>Loygavegur</h2>
+          <div class="location">Iceland</div>
+          <div class="stats">
+            <span>★ 5.0</span><span>☁ 19°C</span><span>🕒 4 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="card">
+        <div class="card-header">
+          <img class="card-img" src="../img/haminh.JPG" alt="Card image">
+        </div>
+        <div class="card-body">
+          <h2>Blue Lagoon</h2>
+          <div class="location">Grindavík</div>
+          <div class="stats">
+            <span>★ 4.8</span><span>☁ 22°C</span><span>🕒 2 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="card">
+        <div class="card-header">
+          <img class="card-img" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1000&auto=format&fit=crop" alt="Card image">
+        </div>
+        <div class="card-body">
+          <h2>Kirkjufell</h2>
+          <div class="location">Snæfellsnes</div>
+          <div class="stats">
+            <span>★ 4.9</span><span>☁ 15°C</span><span>🕒 3 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    effect: "cards", /* Hiệu ứng bộ bài giống GSAP/Tinder */
+    grabCursor: true,
+    initialSlide: 1, /* Bắt đầu từ card thứ 2 cho đẹp */
+    cardsEffect: {
+      perSlideOffset: 10, /* Khoảng cách giữa các card xếp chồng */
+      perSlideRotate: 2,  /* Độ xoay nhẹ */
+      slideShadows: true, /* Bóng đổ */
+    },
+  });
+</script>
+</body>
+</html>

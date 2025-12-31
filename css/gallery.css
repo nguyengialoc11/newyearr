@@ -1,0 +1,141 @@
+/* Reset cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Flexbox căn giữa toàn màn hình */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh; /* Fix lỗi thanh địa chỉ mobile */
+
+    /* Màu nền hồng của bạn */
+    background: -webkit-linear-gradient(top, rgb(238, 156, 167) 0%, rgb(238, 156, 167) 120%);
+    background: linear-gradient(to bottom, rgba(238,156,167,0.35), rgba(238,156,167,0.8));
+
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Chặn cuộn trang web */
+}
+
+/* --- SWIPER STYLES (Phần quan trọng nhất) --- */
+.swiper {
+    width: 320px;  /* Chiều rộng khung vuốt */
+    max-width: 100%;
+    height: 600px; /* Chiều cao khung vuốt */
+    max-height: 90vh;
+}
+
+.swiper-slide {
+    border-radius: 30px;
+    /* Slide cần trong suốt để hiển thị bo góc của card */
+    background: transparent;
+}
+
+/* --- CARD STYLES --- */
+.card {
+    width: 100%;
+    height: 100%; /* Card sẽ chiếm hết slide */
+
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Phần Ảnh (Header) */
+.card-header {
+    flex: none;
+    width: 100%;
+    /* Không set height cứng, để ảnh tự đẩy */
+    position: relative;
+    z-index: 1;
+    font-size: 0; /* Xóa khoảng trắng dưới ảnh */
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    min-height: 300px; /* Đảm bảo ảnh đủ cao */
+    object-fit: cover;
+    display: block;
+}
+
+/* 2. Phần Nội dung Trắng */
+.card-body {
+    flex: 1;
+    background-color: white;
+
+    /* Margin âm để tạo hình lượn sóng */
+    margin-top: -60px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 80px;
+
+    position: relative;
+    z-index: 2;
+    padding: 25px; /* Padding xung quanh */
+
+    display: flex;
+    flex-direction: column;
+
+    /* QUAN TRỌNG: Đổi từ space-between thành flex-start */
+    justify-content: flex-start;
+
+    /* Tạo khoảng cách đều nhau giữa các dòng chữ (VD: 5px - 10px) */
+    gap: 10px;
+}
+
+h2 {
+    margin: 0; /* Xóa margin thừa */
+    color: #222;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.location {
+    color: #888;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px; /* Khoảng cách nhỏ với stats */
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f9f9f9;
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+
+/* Media Query cho màn hình siêu nhỏ */
+@media screen and (max-height: 600px) {
+    .swiper { height: 95vh; }
+    .card-img { min-height: 250px; }
+}
+#fireworkBg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    background: transparent;
+    opacity: 0.4 !important;
+}
